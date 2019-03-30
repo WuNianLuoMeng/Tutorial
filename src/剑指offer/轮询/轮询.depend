@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553919919 source:e:\cxx\½£Ö¸offer\ÂÖÑ¯\main.cpp
+	<unistd.h>
+	<iostream>
+	<pthread.h>
+

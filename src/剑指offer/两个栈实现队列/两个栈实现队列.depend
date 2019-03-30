@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1553932084 source:e:\cxx\剑指offer\两个栈实现队列\main.cpp
+	<stack>
+	<iostream>
+
