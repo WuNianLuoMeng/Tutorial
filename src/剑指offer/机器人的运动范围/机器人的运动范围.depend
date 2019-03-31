@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1554015499 source:e:\tutorial\tutorial\src\剑指offer\机器人的运动范围\main.cpp
+	<queue>
+	<cstring>
+	<iostream>
+	<algorithm>
+
