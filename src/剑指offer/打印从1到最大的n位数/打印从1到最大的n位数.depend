@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554105763 source:e:\tutorial\tutorial\src\剑指offer\打印从1到最大的n位数\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+
