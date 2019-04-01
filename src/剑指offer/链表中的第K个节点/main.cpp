@@ -78,7 +78,8 @@ release_list(List *list)
     }
 }
 
-Node *find_last_Kth(List *list, int k)
+Node *
+find_last_Kth(List *list, int k)
 {
     if(list == NULL && k == 0)
         return NULL;
