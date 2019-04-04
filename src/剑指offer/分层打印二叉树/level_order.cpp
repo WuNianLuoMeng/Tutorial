@@ -1,3 +1,4 @@
+#include <stack>
 #include <queue>
 #include <cstdlib>
 #include <iostream>
@@ -6,6 +7,7 @@
 using std::cin;
 using std::cout;
 using std::endl;
+using std::stack;
 using std::queue;
 
 struct Node
@@ -68,6 +70,10 @@ bst_insert(BST *tree, int val)
     }
 }
 
+/**
+ * 
+ * 层序遍历
+ */
 void
 bst_level_order(BST *tree)
 {
@@ -93,6 +99,10 @@ bst_level_order(BST *tree)
     printf("\n");
 }
 
+/**
+ * 
+ * 分层打印二叉树
+ */
 void
 bst_level_order2(BST *tree)
 {
@@ -130,6 +140,76 @@ bst_level_order2(BST *tree)
     printf("\n");
 }
 
+/**
+ * 之字形打印二叉树
+ */
+void
+bst_level_order3(BST *tree)
+{
+    if(tree == nullptr)
+        return;
+    stack<Node *> odd;
+    stack<Node *> even;
+    Node *root = tree -> root;
+    if(root == nullptr)
+        return;
+    odd.push(root);
+    int to_be_print = 1;
+    int next_level = 0;
+    int level = 1;
+    while(!odd.empty() || !even.empty()) {
+        Node *now;
+        to_be_print--;
+        if(level & 1) {
+            now = odd.top();
+            odd.pop();
+            printf("%d ", now -> val);
+            if(now -> left != nullptr) {
+                even.push(now -> left);
+                next_level++;
+            }
+                
+            if(now -> right != nullptr) {
+                even.push(now -> right);
+                next_level++;
+            }
+            
+            if(to_be_print == 0) {
+                to_be_print = next_level;
+                next_level = 0;
+                if(odd.empty())
+                    printf("\n");
+                level++;
+            }
+            
+        }
+        else {
+            now = even.top();
+            even.pop();
+            printf("%d ", now -> val);
+            if(now -> right != nullptr) {
+                odd.push(now -> right);
+                next_level++;
+            }
+                
+            if(now -> left != nullptr) {
+                odd.push(now -> left);
+                next_level++;
+            }
+            
+            if(to_be_print == 0) {
+                to_be_print = next_level;
+                next_level = 0;
+                if(even.empty())
+                    printf("\n");
+                level++;
+            }
+
+        }
+    }
+    printf("\n");
+}
+
 void
 bst_release(Node *node)
 {
@@ -162,7 +242,7 @@ main(int argc, char *argv[])
     bst_insert(&tree, 13);
     bst_insert(&tree, 15);
     
-    bst_level_order2(&tree);
+    bst_level_order3(&tree);
 
     bst_release(tree.root);
     return 0;
