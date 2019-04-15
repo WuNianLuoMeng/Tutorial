@@ -32,7 +32,6 @@ Example::~Example()
     if(obj != nullptr) {
         delete obj;
     }
-    pthread_mutex_destroy(&mutex);
 }
 Example *Example::getObject()
 {
