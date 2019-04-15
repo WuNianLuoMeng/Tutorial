@@ -46,8 +46,6 @@ Example *Example::getObject()
     return obj;
 }
 
-pthread_mutex_t printMutex = PTHREAD_MUTEX_INITIALIZER;
-
 void *run(void *arg)
 {
     MyThread *th = (MyThread *)arg;
